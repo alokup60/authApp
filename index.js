@@ -12,6 +12,10 @@ require("./config/databse").connect();
 const user = require("./routes/user");
 app.use("/api/v1", user);
 
+app.get("/", (req, res) => {
+  res.send("This is homepage");
+});
+
 //activate server
 app.listen(PORT, () => {
   console.log(`App is running at ${PORT}`);
