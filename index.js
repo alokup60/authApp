@@ -4,6 +4,9 @@ const app = express();
 require("dotenv").config();
 const PORT = process.env.PORT || 4001;
 
+//cookie-parser
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
 app.use(express.json());
 
 require("./config/databse").connect();

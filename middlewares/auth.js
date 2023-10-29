@@ -5,8 +5,14 @@ require("dotenv").config(); //secret key
 //Authentication
 exports.auth = (req, res, next) => {
   try {
+    console.log("cookies->", req.cookies.token);
+    console.log("body->", req.body.token);
+
     //extract JWT token ->|| req.cookies;
-    const { token } = req.body;
+    const { token } =
+      req.cookies ||
+      req.body ||
+      req.header("Authorization").replace("Bearer ", "");
 
     if (!token) {
       return res.status(401).json({
