@@ -94,19 +94,19 @@ exports.login = async (req, res) => {
         httpOnly: true, //u can't access on client side
       };
       //pass token through cookie
-      res.cookie("token", token, options).status(200).json({
-        success: true,
-        token,
-        user,
-        message: "User Logged In successfully!",
-      });
-      //pass token to the body
-      //   res.status(200).json({
+      //   res.cookie("token", token, options).status(200).json({
       //     success: true,
       //     token,
       //     user,
       //     message: "User Logged In successfully!",
       //   });
+      //pass token to the body
+      res.status(200).json({
+        success: true,
+        token,
+        user,
+        message: "User Logged In successfully!",
+      });
     } else {
       return res.status(403).json({
         success: false,

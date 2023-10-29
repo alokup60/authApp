@@ -7,6 +7,7 @@ exports.auth = (req, res, next) => {
   try {
     console.log("cookies->", req.cookies.token);
     console.log("body->", req.body.token);
+    console.log("header=>", req.header("Authorization"));
 
     //extract JWT token ->|| req.cookies;
     const { token } =
