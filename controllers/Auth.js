@@ -85,7 +85,7 @@ exports.login = async (req, res) => {
       });
       //insert token in user Object
       user = user.toObject();
-      user.token = token;
+      user.token = token; //send token to body
       user.password = undefined; //remove password from object not from DB
 
       //send cookie
